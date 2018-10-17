@@ -16,7 +16,13 @@ class APIContainer extends Component {
     }
 }
 
-
+const Course = ({ title, author, img }) => (
+    <div>
+        <h1>{ title } </h1>
+        <img src={ img } alt="Course Thumbnail"/>
+        <h4>Author: { author }</h4>
+    </div>
+);
 
 export default APIContainer;
 

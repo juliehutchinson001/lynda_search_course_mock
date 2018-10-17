@@ -17,3 +17,6 @@ class APIContainer extends Component {
 }
 
 
+
+export default APIContainer;
+

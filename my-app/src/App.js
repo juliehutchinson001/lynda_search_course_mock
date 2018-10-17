@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Header from './Components/Header';
+import HeaderContainer from './Components/Header';
 import APIContainer from './Components/API';
+import PlaylistContainer from './Components/Playlist';
 import Footer from './Components/Footer';
 
 class App extends Component {
@@ -8,23 +9,24 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       search: ''
-    }
+    };
 
   }
 
   handleSearchOnChange(event) {
-    this.setState({search: event.target.value})
+    this.setState( { search: event.target.value } )
   }
 
   render() {
     return (
       <div className="App">
-        <Header 
-          value={this.state.search}
-          onChange={ (event) => this.handleSearchOnChange(event) }
+        <HeaderContainer 
+          value={ this.state.search }
+          handleSearch={ (event) => this.handleSearchOnChange(event) }
         />
+        <PlaylistContainer />
         <APIContainer />
         <Footer />
       </div>

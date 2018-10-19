@@ -10,7 +10,16 @@ class APIContainer extends Component {
         }
     }
 
-
+    createCourse(course, index) {
+        return (
+            <Course 
+                key={ index }
+                title={ course.courseTitle }
+                author={ course.courseTitle }
+                img={ course.courseImg }
+            />
+        )
+    }
 
     componentDidMount() {
 

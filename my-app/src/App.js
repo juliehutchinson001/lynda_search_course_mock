@@ -21,12 +21,19 @@ class App extends Component {
 
   handleSearchOnChange(event) {
 
+    //onChange updates the searched term and state
     const userSearchTerm = event.target.value;
     this.setState( { search: userSearchTerm } );
+  }
 
+  handleEnterKeyPress(event) {
+
+    //onKeyPress tracks the 'enter' key to call the API request
     const verifySearch = getQuery(userSearchTerm);
-    const invalidAns = "Search a valid term";
 
+    fetchCourses(verifySearch);
+
+/*
     if (verifySearch === invalidAns) {
       this.setState({ invalidAnswer: true });
     } else {
@@ -41,7 +48,7 @@ class App extends Component {
           })
         );
     }
-
+*/
   }
 
   render() {
@@ -50,7 +57,8 @@ class App extends Component {
         <HeaderContainer 
           value={ this.state.search }
           handleSearch={ (event) => this.handleSearchOnChange(event) }
-        />
+          handleEnterKeyPress={ (event) => this.handleEnterKeyPress(event)}
+          />
         <Playlist />
         <CourseContainer />
         <Footer />

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import fetchCourses from './Helpers/get_API_resp';
+import getQuery from './Helpers/get_query';
 import HeaderContainer from './Components/Header';
-import APIContainer from './Components/API';
+import CourseContainer from './Components/API';
 import PlaylistContainer from './Components/Playlist';
 import Footer from './Components/Footer';
 
@@ -10,13 +12,36 @@ class App extends Component {
     super(props);
 
     this.state = {
-      search: ''
+      courses: [],
+      search: '',
+      invalidAnswer: false
     };
 
   }
 
   handleSearchOnChange(event) {
-    this.setState( { search: event.target.value } )
+
+    const userSearchTerm = event.target.value;
+    this.setState( { search: userSearchTerm } );
+
+    const verifySearch = getQuery(userSearchTerm);
+    const invalidAns = "Search a valid term";
+
+    if (verifySearch === invalidAns) {
+      this.setState({ invalidAnswer: true });
+    } else {
+      const query = `search?categoryName=${verifySearch}`;
+      const url = `https://mock-course-backend.herokuapp.com/${query}`;
+      
+      fetch(url)
+        .then(resp => resp.json())
+        .then(courses => this.setState({ 
+            courses: courses.course,
+            invalidAnswer: false
+          })
+        );
+    }
+
   }
 
   render() {
@@ -27,7 +52,7 @@ class App extends Component {
           handleSearch={ (event) => this.handleSearchOnChange(event) }
         />
         <PlaylistContainer />
-        <APIContainer />
+        <CourseContainer />
         <Footer />
       </div>
     );

@@ -5,8 +5,16 @@ class HeaderContainer extends Component {
 
     render() {
 
-        return 
+        return (
+            <Header 
+                value={ this.value } 
+                handleSearch={ this.handleSearch }                
+            />
+        );
+
     }
 }
+
+
 
 export default HeaderContainer;

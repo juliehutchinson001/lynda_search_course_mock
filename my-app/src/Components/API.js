@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
-class APIContainer extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            courses: []
-        }
-    }
+class CourseContainer extends Component {
 
     createCourse(course, index) {
         return (
@@ -19,16 +11,6 @@ class APIContainer extends Component {
                 img={ course.courseImg }
             />
         )
-    }
-
-    componentDidMount() {
-
-        const query = `search?categoryName=javascript`;
-        const url = `https://mock-course-backend.herokuapp.com/${query}`;
-        
-        fetch(url)
-            .then(resp => resp.json())
-            .then(courses => this.setState({ courses: courses.course }))
     }
 
     render() {
@@ -45,5 +27,5 @@ const Course = ({ title, author, img }) => (
     </div>
 );
 
-export default APIContainer;
+export default CourseContainer;
 

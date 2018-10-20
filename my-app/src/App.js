@@ -3,7 +3,7 @@ import fetchCourses from './Helpers/get_API_resp';
 import getQuery from './Helpers/get_query';
 import HeaderContainer from './Components/Header';
 import CourseContainer from './Components/API';
-import PlaylistContainer from './Components/Playlist';
+import Playlist from './Components/Playlist';
 import Footer from './Components/Footer';
 
 class App extends Component {
@@ -51,7 +51,7 @@ class App extends Component {
           value={ this.state.search }
           handleSearch={ (event) => this.handleSearchOnChange(event) }
         />
-        <PlaylistContainer />
+        <Playlist />
         <CourseContainer />
         <Footer />
       </div>

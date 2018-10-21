@@ -8,14 +8,17 @@ class HeaderContainer extends Component {
         return (
             <Header 
                 value={ this.value } 
-                handleSearch={ this.handleSearch }                
+                handleClickSearch={ this.handleClickSearch }   
+                handleSearch={ this.handleSearch }   
+                handleShowAll={ this.handleShowAll }   
+                handleEnterKeyPress={ this.handleEnterKeyPress }             
             />
         );
 
     }
 }
 
-const Header = ({ value, handleSearch }) => (
+const Header = ({ value, handleClickSearch, handleSearch, handleEnterKeyPress, handleShowAll }) => (
 
     <header>
         <h1>Lynda Learning</h1>
@@ -34,12 +37,13 @@ const Header = ({ value, handleSearch }) => (
         <input 
             name='search' 
             onChange={ handleSearch }
+            onKeyPress={ handleEnterKeyPress }
             placeholder="search for a topic" 
             type='search' 
             value={ value } 
         />
-        <button type='button' >Search</button>
-        <button type='button' >Show All</button>
+        <button type='button' onClick={ handleClickSearch }>Search</button>
+        <button type='button' onClick={ handleShowAll } >Show All</button>
 
     </header>
 

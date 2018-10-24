@@ -2,6 +2,18 @@ import React, { Component, Fragment } from 'react';
 
 class CourseContainer extends Component {
 
+    createCourse(course, index) {
+        return (
+            <Course 
+                key={ index }
+                title={ course.courseTitle }
+                author={ course.courseAuthor }
+                img={ course.courseImg }
+                valid={ this.props.validAnswer }
+            />
+        )
+    }
+
     render() {
         const { courses, validAnswer } = this.props;
         const coursesArr = courses.map((course, i) => this.createCourse(course, i));

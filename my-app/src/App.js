@@ -13,12 +13,20 @@ class App extends Component {
 
     this.state = {
       courses: [],
-      search: ''
     };
 
     this.handleClickSearch = this.handleClickSearch.bind(this);
     this.handleShowAll = this.handleShowAll.bind(this);
 
+  }
+
+  getCourses() {
+      fetchCourses(this.state.search.toLowerCase(), courses => {
+        this.setState({ 
+          courses: courses,
+          validAnswer: true
+        })
+      });
   }
 
   handleClickSearch() {
@@ -50,6 +58,12 @@ class App extends Component {
 
   }
 
+  showError(searchNotValid) {
+    if (searchNotValid) {        
+      this.setState({ validAnswer: false });
+    }
+  }
+
   handleEnterKeyPress(event) {
 
     //onKeyPress tracks the 'enter' key to call the API request
@@ -61,6 +75,11 @@ class App extends Component {
     isValidSearch && enterKeyWasPressed ? this.getCourses() : this.showError(enterKeyWasPressed);
 
   }
+  
+
+  //onChange updates the searched term and state
+  handleSearchOnChange(e) { this.setState( { search: e.target.value } ); }
+
 
   render() {
     return (

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import fetchCourses from './Helpers/get_API_resp';
-import getQuery from './Helpers/get_query';
+import fetchCourses from './Helpers/get_api_courses';
+import validateSearch from './Helpers/validate_search';
 import HeaderContainer from './Components/Header';
-import CourseContainer from './Components/API';
+import CourseContainer from './Components/courses';
 import Playlist from './Components/Playlist';
 import Footer from './Components/Footer';
 
@@ -13,54 +13,66 @@ class App extends Component {
 
     this.state = {
       courses: [],
-      search: '',
-      invalidAnswer: false
+      search: ''
     };
+
+    this.handleClickSearch = this.handleClickSearch.bind(this);
+    this.handleShowAll = this.handleShowAll.bind(this);
 
   }
 
-  handleSearchOnChange(event) {
+  handleClickSearch() {
+    const searchIsValid = validateSearch(this.state.search.toLowerCase());
+    searchIsValid ? this.getCourses() : this.showError(true);
 
-    //onChange updates the searched term and state
-    const userSearchTerm = event.target.value;
-    this.setState( { search: userSearchTerm } );
+  }
+
+  handleShowAll() {
+    
+    const categories = ['java', 'javascript', 'python', 'react'];
+    this.setState({ courses: [] });
+    
+    categories.forEach(category => {
+      fetchCourses(category, newCourses => {
+
+        this.setState(prevState => {
+          const oldCourses = prevState.courses;
+
+          return {
+            courses: [...oldCourses, ...newCourses],
+            validAnswer: true
+          };
+        });
+
+      });
+      
+    })
+
   }
 
   handleEnterKeyPress(event) {
 
     //onKeyPress tracks the 'enter' key to call the API request
-    const verifySearch = getQuery(userSearchTerm);
+    const userSearchTerm = this.state.search;
 
-    fetchCourses(verifySearch);
+    const isValidSearch = validateSearch(userSearchTerm.toLowerCase());
+    const enterKeyWasPressed = event.key === 'Enter' || event.keyCode === 13;
 
-/*
-    if (verifySearch === invalidAns) {
-      this.setState({ invalidAnswer: true });
-    } else {
-      const query = `search?categoryName=${verifySearch}`;
-      const url = `https://mock-course-backend.herokuapp.com/${query}`;
-      
-      fetch(url)
-        .then(resp => resp.json())
-        .then(courses => this.setState({ 
-            courses: courses.course,
-            invalidAnswer: false
-          })
-        );
-    }
-*/
+    isValidSearch && enterKeyWasPressed ? this.getCourses() : this.showError(enterKeyWasPressed);
+
   }
 
   render() {
     return (
       <div className="App">
         <HeaderContainer 
-          value={ this.state.search }
-          handleSearch={ (event) => this.handleSearchOnChange(event) }
+          handleClickSearch={ this.handleClickSearch }
           handleEnterKeyPress={ (event) => this.handleEnterKeyPress(event)}
-          />
+          handleSearch={ (event) => this.handleSearchOnChange(event) }
+          handleShowAll={ this.handleShowAll }
+          value={ this.state.search }
+        />
         <Playlist />
-        <CourseContainer />
         <Footer />
       </div>
     );

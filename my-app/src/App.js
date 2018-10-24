@@ -73,6 +73,11 @@ class App extends Component {
           value={ this.state.search }
         />
         <Playlist />
+        <CourseContainer 
+          courses={this.state.courses}
+          validAnswer={ this.state.validAnswer }  
+          toggleCoursesInList={ (event) => this.toggleCoursesInList(event) }
+        />
         <Footer />
       </div>
     );

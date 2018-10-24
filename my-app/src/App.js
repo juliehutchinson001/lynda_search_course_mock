@@ -13,6 +13,11 @@ class App extends Component {
 
     this.state = {
       courses: [],
+      search: '',
+      validAnswer: true,
+      playlists: ['myPlaylist'],
+      inList: false,
+      toggleList: '+'
     };
 
     this.handleClickSearch = this.handleClickSearch.bind(this);

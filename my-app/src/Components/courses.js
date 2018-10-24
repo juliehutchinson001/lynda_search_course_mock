@@ -15,7 +15,17 @@ class CourseContainer extends Component {
 
 //Block__Element--Modifier
 
+const Course = ({ title, author, img, valid }) => (
+    <Fragment>
+        <div>
+            <h1>{ title } </h1>
+            <img src={ img } alt="Course Thumbnail"/>
+            <h4>Author: { author }</h4>
+        </div>
+        <button type="button"  >{ valid ? '+' : '' }</button>    
+    </Fragment>
 
+);
 
 export default CourseContainer;
 

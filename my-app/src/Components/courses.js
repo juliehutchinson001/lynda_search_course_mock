@@ -9,7 +9,10 @@ class CourseContainer extends Component {
         const errorMsg = <p className="error" >Enter a valid search term</p>;
 
         return (
-            );
+            <section>
+                { validAnswer ? coursesArr : errorMsg }
+            </section>
+        );
     }
 }
 

@@ -3,6 +3,7 @@ import fetchCourses from './Helpers/get_api_courses';
 import validateSearch from './Helpers/validate_search';
 import HeaderContainer from './Components/Header';
 import CourseContainer from './Components/courses';
+import VideoOptionsContainer from './Components/videoOps';
 import Playlist from './Components/Playlist';
 import Footer from './Components/Footer';
 
@@ -102,6 +103,7 @@ class App extends Component {
           validAnswer={ this.state.validAnswer }  
           toggleCoursesInList={ (event) => this.toggleCoursesInList(event) }
         />
+        <VideoOptionsContainer />
         <Footer />
       </div>
     );

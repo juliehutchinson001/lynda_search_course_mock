@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewCategories = () => (
+const NewCategories = ({ newPlaylist, handleCatDescription, handleCatName, handleFormSubmit }) => (
 
     
 

@@ -114,13 +114,24 @@ class App extends Component {
 
   }
 
-  handleFormChange(event) {
+  handleNameChange(event) {
 
     const playListName = event.target.value;
     this.setState(oldState => {
       const newState = {...oldState};
       newState.formPlayListFields.name.value = playListName;
-      return newState
+      return newState;
+    });
+
+  }
+
+  handleDescriptionChange(event) {
+
+    const playListDescription = event.target.value;
+    this.setState(oldState => {
+      const newState = {...oldState};
+      newState.formPlayListFields.description.value = playListDescription;
+      return newState;
     });
 
   }

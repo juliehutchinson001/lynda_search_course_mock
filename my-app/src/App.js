@@ -146,7 +146,12 @@ class App extends Component {
           classOptions={ this.state.toggleOptions }
           createPlayList={ this.createNewPlayList }
         />
-        
+        <NewCategories 
+          newPlayList={ this.state.newList } 
+          handleCatName={ event => this.handleNameChange(event) }
+          handleCatDescription={ event => this.handleDescriptionChange(event) }
+          handleFormSubmit={ event => this.handleSubmitForm(event) }
+        />
         <Footer />
       </div>
     );

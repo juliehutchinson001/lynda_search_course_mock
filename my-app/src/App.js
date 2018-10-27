@@ -142,6 +142,10 @@ class App extends Component {
           validAnswer={ this.state.validAnswer }  
           handleVideoOps={ this.handleVideoOptions }
         />
+        <VideoOptions 
+          classOptions={ this.state.toggleOptions }
+          createPlayList={ this.createNewPlayList }
+        />
         
         <Footer />
       </div>

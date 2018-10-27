@@ -20,7 +20,16 @@ class App extends Component {
       search: '',
       toggleOptions: 'hide-videoOptions',
       validAnswer: true,
-      
+      formPlayListFields: {
+        name: {
+            value: '',
+            id: 'category-name'
+        },
+        description: {
+            value: '',
+            id: 'category-description'
+        }
+      }
     };
 
     this.handleClickSearch = this.handleClickSearch.bind(this);

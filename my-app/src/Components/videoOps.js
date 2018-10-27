@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class VideoOptionsContainer extends Component {
-    render() {
-        return (
-            <div></div>
+const VideoOptions = ({ classOptions, createPlayList }) => (
+    
+    <section className={classOptions} >
+        <h1>Add to...</h1>
+        <ul>
+            <li onClick={ createPlayList } >New Playlist
+                <span></span>
+            </li>
+            <li>Playlist
+                <span></span>
+            </li>
+        </ul>
+    </section>
         );
-    }
-}
 
-export default VideoOptionsContainer;
+
+export default VideoOptions;

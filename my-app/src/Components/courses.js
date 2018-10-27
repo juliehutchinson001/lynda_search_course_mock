@@ -6,9 +6,10 @@ class CourseContainer extends Component {
         return (
             <Course 
                 key={ index }
-                title={ course.courseTitle }
                 author={ course.courseAuthor }
+                handleVideoOps={ this.props.handleVideoOps }
                 img={ course.courseImg }
+                title={ course.courseTitle }
                 valid={ this.props.validAnswer }
             />
         )
@@ -30,14 +31,14 @@ class CourseContainer extends Component {
 
 //Block__Element--Modifier
 
-const Course = ({ title, author, img, valid }) => (
+const Course = ({ title, author, handleVideoOps, img, valid }) => (
     <Fragment>
         <div className="courses courses__credentials" >
             <h1 className="courses courses__title" >{ title } </h1>
             <img className="courses courses__image" src={ img } alt="Course Thumbnail"/>
             <h4 className="courses courses__author" >Author: { author }</h4>
         </div>
-        <button className="courses courses__playlist--identifier" type="button"  >{ valid ? '+' : '' }</button>    
+        <button className="courses courses__playlist--identifier" onClick={ handleVideoOps } type="button"  >{ valid ? '+' : '' }</button>    
     </Fragment>
 
 );

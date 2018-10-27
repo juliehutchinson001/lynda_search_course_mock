@@ -15,7 +15,11 @@ class App extends Component {
 
     this.state = {
       courses: [],
-      
+      newList: '',
+      playlists: ['myPlaylist'],
+      search: '',
+      toggleOptions: 'hide-videoOptions',
+      validAnswer: true,
       
     };
 

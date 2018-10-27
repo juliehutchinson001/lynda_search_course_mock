@@ -137,6 +137,11 @@ class App extends Component {
           value={ this.state.search }
         />
         <Playlist playLists={this.state.playlists} />
+        <CourseContainer 
+          courses={ this.state.courses }
+          validAnswer={ this.state.validAnswer }  
+          handleVideoOps={ this.handleVideoOptions }
+        />
         
         <Footer />
       </div>

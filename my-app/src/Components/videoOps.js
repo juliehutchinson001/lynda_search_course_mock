@@ -2,13 +2,13 @@ import React from 'react';
 
 const VideoOptions = ({ classOptions, createPlayList }) => (
     
-    <section className={classOptions} >
-        <h1>Add to...</h1>
-        <ul>
-            <li onClick={ createPlayList } >New Playlist
+    <section className={"options " + classOptions} >
+        <h1 className="options options__header" >Add to...</h1>
+        <ul className="options options__list" >
+            <li className="options options__list--new" onClick={ createPlayList } >New Playlist
                 <span></span>
             </li>
-            <li>Playlist
+            <li className="options options__list--existing" >Playlist
                 <span></span>
             </li>
         </ul>

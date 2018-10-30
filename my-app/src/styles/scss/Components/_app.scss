@@ -1,4 +1,13 @@
-#App {
-    display: flex;
-    
+
+
+@media Screen and (min-width: 1024px) {
+    .App {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 }
+

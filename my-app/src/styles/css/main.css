@@ -1,6 +1,25 @@
-#App {
-  display: flex; }
+.App > * {
+  border: 1px solid red;
+  margin-bottom: 50px; }
 
+.courses__credentials {
+  display: flex;
+  justify-content: space-around;
+  background-color: #C3C1C5; }
+
+.playlist__link--single {
+  display: flex;
+  align-items: flex-start;
+  margin: 20px 0; }
+
+@media Screen and (min-width: 1024px) {
+  .App {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; } }
 /*
 body {
     margin: 0;
@@ -10,9 +29,32 @@ body {
     color: $primary-color;
 }
 */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
+@media Screen and (min-width: 1024px) {
+  .courses {
+    width: 68%; } }
+.footer {
+  width: 100%; }
+
+.header__options > * {
+  list-style: none; }
+
+@media Screen and (min-width: 1024px) {
+  .header {
+    width: 100%; }
+
+  .header__top {
+    display: flex;
+    align-items: center; }
+
+  .header__title {
+    margin-right: auto; } }
+@media Screen and (min-width: 1024px) {
+  .playlist {
+    width: 30%; } }
+.hide-VideoOptions {
+  color: transparent; }
+
+.show-VideoOptions {
+  color: black; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import fetchCourses from './Helpers/get_api_courses';
 import validateSearch from './Helpers/validate_search';
-import HeaderContainer from './Components/Header';
+import HeaderContainer from './Components/header';
 import CourseContainer from './Components/courses';
-import VideoOptions from './Components/videoOps';
-import NewCategories from './Components/categories';
-import Playlist from './Components/Playlist';
-import Footer from './Components/Footer';
+import PlaylistSection from './Components/playlist_section';
+import Footer from './Components/footer';
 
 class App extends Component {
 
@@ -15,27 +13,25 @@ class App extends Component {
 
     this.state = {
       courses: [],
-      newList: '',
-      playlists: ['myPlaylist'],
+      isInPlaylist: false,
+      playlists: [
+        {
+          name: "My Playlist",
+          count: 0,
+          description: "Default Playlist",
+          videos: {}
+        }
+      ],
       search: '',
-      toggleOptions: 'hide-videoOptions',
       validAnswer: true,
       formPlayListFields: {
-        name: {
-            value: '',
-            id: 'category-name'
-        },
-        description: {
-            value: '',
-            id: 'category-description'
-        }
+        name: "",
+        description: ""
       }
     };
 
-    this.handleClickSearch = this.handleClickSearch.bind(this);
-    this.handleShowAll = this.handleShowAll.bind(this);
-    this.handleVideoOptions = this.handleVideoOptions.bind(this);
-    this.createNewPlayList = this.createNewPlayList.bind(this);
+    this.handleSearchOnClick = this.handleSearchOnClick.bind(this);
+    this.handleShowAllCourses = this.handleShowAllCourses.bind(this);
 
   }
 
@@ -49,43 +45,24 @@ class App extends Component {
       });
   }
 
-  handleClickSearch() {
+  handleSearchOnClick() {
     //validates category of courses is valid after clicking 'search'
     const searchIsValid = validateSearch(this.state.search.toLowerCase());
     searchIsValid ? this.getCourses() : this.showError(true);
 
   }
 
-  handleShowAll() {
+  handleShowAllCourses() {
     //shows all videos
-    const categories = ['java', 'javascript', 'python', 'react'];
-    this.setState({ courses: [] });
-    
-    categories.forEach(category => {
-      fetchCourses(category, newCourses => {
-
-        this.setState(prevState => {
-          const oldCourses = prevState.courses;
-
-          return {
-            courses: [...oldCourses, ...newCourses],
-            validAnswer: true
-          };
-        });
-
-      });
-      
-    })
+    this.setState({ courses: [] }, () => fetchCourses('all', allCourses => {
+      this.setState({ courses: allCourses });
+    }));
 
   }
 
-  showError(searchNotValid) {
-    if (searchNotValid) {        
-      this.setState({ validAnswer: false });
-    }
-  }
+  showError(searchNotValid) { searchNotValid && this.setState({ validAnswer: false }); }
 
-  handleEnterKeyPress(event) {
+  handleSearchOnEnter(event) {
 
     //onKeyPress tracks the 'enter' key to call the API request
     const userSearchTerm = this.state.search;
@@ -98,23 +75,9 @@ class App extends Component {
   }
 
   //onChange updates the searched term and state
-  handleSearchOnChange(e) { this.setState( { search: e.target.value } ); }
+  handleSearchInputChange(e) { this.setState( { search: e.target.value } ); }
 
-  handleVideoOptions() {
-    //assigns a class to the pop-up on the videos to create/add playlist video
-    const showHideOptions = this.state.toggleOptions === 'hide-VideoOptions' ? 'show-VideoOptions' : 'hide-VideoOptions';
-    this.setState({ toggleOptions: showHideOptions });
-
-  }
-
-  createNewPlayList() {
-    //asigns a class to the create playlist pop-up to show the modale
-    const aNewPlayList = this.state.newList === '' ? 'create-newList' : '';
-    this.setState({ newList: aNewPlayList });
-
-  }
-
-  handleNameChange(event) {
+  handleInputName(event) {
 
     const playListName = event.target.value;
     this.setState(oldState => {
@@ -125,7 +88,7 @@ class App extends Component {
 
   }
 
-  handleDescriptionChange(event) {
+  handleInputDescription(event) {
 
     const playListDescription = event.target.value;
     this.setState(oldState => {
@@ -136,37 +99,77 @@ class App extends Component {
 
   }
 
+  createPlaylist(event) {
+
+    event.preventDefault();
+
+    /* playlist: [
+      {
+        name: ...,
+        count: ...,
+        videos: {
+          nameOfCourse: {
+            name: ...,
+            author: ...,
+            img: ...
+          }
+        }
+      }
+    ] */
+
+    const course = this.state.courses[this.state.activeCourse];
+    const videos = {};
+    videos[course.courseTitle] = course;
+
+    const newPlaylist = {
+      name: this.state.formPlayListFields.name,
+      count: 1,
+      description: this.state.formPlayListFields.description,
+      videos
+    };
+
+    this.setState(oldState => {
+
+      return {
+        playlists: [...oldState.playlists, newPlaylist]
+      };
+
+    });
+
+  }
+
 
   render() {
     return (
       <div className="App">
         <HeaderContainer 
-          handleClickSearch={ this.handleClickSearch }
-          handleEnterKeyPress={ event => this.handleEnterKeyPress(event)}
-          handleSearch={ event => this.handleSearchOnChange(event) }
-          handleShowAll={ this.handleShowAll }
-          value={ this.state.search }
+          handleSearchOnClick={ this.handleSearchOnClick }
+          handleSearchOnEnter={ event => this.handleSearchOnEnter(event)}
+          handleSearchInputChange={ event => this.handleSearchInputChange(event) }
+          handleShowAllCourses={ this.handleShowAllCourses }
+          search={ this.state.search }
         />
-        <Playlist playLists={this.state.playlists} />
+        <PlaylistSection 
+          playLists={ this.state.playlists } 
+          isInPlaylist={ this.state.isInPlaylist }
+        />
         <CourseContainer 
+          isInPlaylist={ this.state.isInPlaylist }
           courses={ this.state.courses }
           validAnswer={ this.state.validAnswer }  
-          handleVideoOps={ this.handleVideoOptions }
-        />
-        <VideoOptions 
-          classOptions={ this.state.toggleOptions }
-          createPlayList={ this.createNewPlayList }
-        />
-        <NewCategories 
-          newPlayList={ this.state.newList } 
-          handleCatName={ event => this.handleNameChange(event) }
-          handleCatDescription={ event => this.handleDescriptionChange(event) }
-          handleFormSubmit={ event => this.handleSubmitForm(event) }
+          createPlayList={ event => this.createPlaylist(event) }
+          playlists={ this.state.playlists } 
+          handleInputName={ event => this.handleInputName(event) }
+          handleInputDescription={ event => this.handleInputDescription(event) }
         />
         <Footer />
       </div>
+      
     );
   }
 }
 
 export default App;
+
+/*
+ */

@@ -1,0 +1,33 @@
+
+.header__options > * {
+    list-style: none;
+}
+
+@media Screen and (min-width: 1024px) {
+    .header {
+        width: 100%;
+    }
+
+    .header__top {
+        display: flex;
+        align-items: center;
+    }
+
+    .header__title {
+        margin-right: auto;
+    }
+
+    .header__options {
+        display: flex;
+        margin-right: 10px;
+    }
+    
+    .header__options > * {
+        padding: 10px;
+        text-transform: uppercase;
+    }
+
+
+
+
+}

@@ -1,47 +1,104 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import ModalContainer from './playlist_modal';
+
 
 class CourseContainer extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeModal: null
+        };
+    }
+
+    addVideoToPlaylist(event) {
+        this.setState({activeModal: 0})
+
+    }
+
+    openPlaylistModal(e) {
+        this.setState({
+            activeModal: parseInt(e.target.dataset.id, 10),
+        });
+    }
+
     createCourse(course, index) {
+        const { 
+            createPlayList, 
+            playlists, 
+            handleInputName, 
+            handleInputDescription
+        } = this.props;
+/*
+        // Problem: Find out if course is in playlist
+        // Check all of the playlist one by one
+        // Check inside of the videos in each of the playlist one by one
+        // If true display checkmark
+        // Else show plus
+*/
         return (
             <Course 
+                playlists={ playlists }
+                handleInputDescription={ handleInputDescription }
+                handleInputName={ handleInputName }
+                addVideoToPlaylist={ event => this.addVideoToPlaylist(event) }
                 key={ index }
-                author={ course.courseAuthor }
-                handleVideoOps={ this.props.handleVideoOps }
-                img={ course.courseImg }
-                title={ course.courseTitle }
-                valid={ this.props.validAnswer }
+                openPlaylistModal={ event => this.openPlaylistModal(event) }
+                course={ course }
+                // isInPlaylist={ isInPlaylist }
+                courseId={ index }
+                activeModal={ this.state.activeModal }
+                createPlayList={ createPlayList }
             />
-        )
+        );
     }
 
     render() {
         const { courses, validAnswer } = this.props;
         const coursesArr = courses.map((course, i) => this.createCourse(course, i));
         
-        const errorMsg = <p className="courses courses_error" >Enter a valid search term</p>;
+        const errorMsg = <p className="courses_error" >Enter a valid search term</p>;
 
         return (
-            <section className="courses" >
+            <main className="courses" >
                 { validAnswer ? coursesArr : errorMsg }
-            </section>
+            </main>
         );
     }
 }
 
 //Block__Element--Modifier
-
-const Course = ({ title, author, handleVideoOps, img, valid }) => (
-    <Fragment>
-        <div className="courses courses__credentials" >
-            <h1 className="courses courses__title" >{ title } </h1>
-            <img className="courses courses__image" src={ img } alt="Course Thumbnail"/>
-            <h4 className="courses courses__author" >Author: { author }</h4>
+const Course = ({ course, openPlaylistModal, courseId, activeModal, handleInputDescription, handleInputName, createPlayList, addVideoToPlaylist, playlists }) => (
+    <div className='course' >
+        <div className="course__credentials" >
+            <h1 className="course__title" >{ course.courseTitle } </h1>
+            <img className="course__image" src={ course.courseImg } alt="Course Thumbnail"/>
+            <h4 className="course__author" >Author: { course.courseAuthor }</h4>
         </div>
-        <button className="courses courses__playlist--identifier" onClick={ handleVideoOps } type="button"  >{ valid ? '+' : '' }</button>    
-    </Fragment>
-
-);
-
+        <button 
+            data-id={ courseId }
+            className="course__playlist--activate-modal" 
+            onClick={ openPlaylistModal } 
+            type="button"  
+        > 
+            + 
+        </button>
+        <ModalContainer
+            handleInputDescription={ handleInputDescription }
+            handleInputName={ handleInputName }
+            addVideoToPlaylist={ addVideoToPlaylist }
+            activeModal={ activeModal }
+            courseId={ courseId }
+            createPlayList={ createPlayList } 
+            openPlaylistModal={ openPlaylistModal }
+            playlists={ playlists }
+        />
+        
+    </div>
+    )
+    
 export default CourseContainer;
+    
+// valid ? '+' : '✓'
 

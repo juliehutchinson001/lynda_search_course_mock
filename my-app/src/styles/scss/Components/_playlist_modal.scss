@@ -1,0 +1,28 @@
+@import '../Helpers/_variables';
+
+
+.show-modal {
+    // color: black;
+    position: relative;
+    background-color: #333233;
+    color: white;
+    width: 30vw;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    top: -20px;
+    left: 20px;
+}
+
+.hide-modal {
+    // color: transparent;
+    position: absolute;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

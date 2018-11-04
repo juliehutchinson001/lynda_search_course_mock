@@ -10,9 +10,15 @@ body {
 }
 */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+@media Screen and (min-width: 1024px) {
+
+    .courses {
+        width: 68%;
+    }
+
+    .course__playlist--activate-modal {
+        font-size: 30px;
+    }
 
 }

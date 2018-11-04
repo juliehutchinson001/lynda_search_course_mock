@@ -1,6 +1,9 @@
 const fetchCourses = (category, callback) => {
 
-    const query = `search?categoryName=${category}`;
+    const query = category === 'all'
+        ? 'search/all'
+        : `search?categoryName=${category}`;
+
     const url = `https://mock-course-backend.herokuapp.com/${query}`;
 
     fetch(url)

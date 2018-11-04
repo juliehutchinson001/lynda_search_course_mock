@@ -103,7 +103,8 @@ class App extends Component {
 
     event.preventDefault();
 
-    /* playlist: [
+    /*
+    playlist: [
       {
         name: ...,
         count: ...,
@@ -115,7 +116,8 @@ class App extends Component {
           }
         }
       }
-    ] */
+    ]
+    */
 
     const course = this.state.courses[this.state.activeCourse];
     const videos = {};

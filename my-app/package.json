@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-scripts": "1.1.5"
   },
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.9.4",
-    "nodemon": "^1.18.4",
+    "nodemon": "^1.18.5",
     "npm-run-all": "^4.1.3"
   }
 }

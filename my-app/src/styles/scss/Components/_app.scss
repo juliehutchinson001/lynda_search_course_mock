@@ -1,34 +1,52 @@
-// Dev only ERASE
+/* -----------------Dev Only, Delete----------------- */
+* {
+    box-sizing: border-box;
+}
 
 .App > * {
-    border: 1px solid red;
-    margin-bottom: 50px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+    
+.header > * {
+    border: 1px solid salmon;
+    margin: 3px;
+} 
+
+.header__bottom > * {
+    border: 1px solid green;
+    margin: 3px;
 }
 
-.courses__credentials {
-    display: flex;
-    justify-content: space-around;
-    background-color: #C3C1C5;
-}
+.course {
+    border: 3px solid teal;
+    margin: 10px 6px;
 
-.playlist__link--single {
-    display: flex;
-    // justify-content: center;
-    align-items: flex-start;
-    // flex-direction: column;
-    margin: 20px 0;
-}
 
-// Dev only ERASE
+.course > * {
+    border: 1px solid orangered;
+    margin: 3px;
+
+
+  /* -----------------Dev Only, Delete----------------- */
 
 @media Screen and (min-width: 1024px) {
     .App {
+
+        /* Dimensions */
+        width: 100%;
+        
+        /* Position */
+        box-sizing: border-box;
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+
+        /* Typography */
+        font-family: sans-serif;
+        font-size: $default-font-size;
+        text-align: center;
     }
 }
 

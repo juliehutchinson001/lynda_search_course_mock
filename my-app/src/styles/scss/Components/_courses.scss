@@ -14,11 +14,72 @@ body {
 @media Screen and (min-width: 1024px) {
 
     .courses {
+        /* Dimensions */
         width: 68%;
-    }
+    }    
 
     .course__playlist--activate-modal {
         font-size: 30px;
+    }    
+
+    .course {
+        /* Color */
+        border-top: 1px solid #eeedee;
+
+        /* Position */
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .course__credentials {
+        /* Dimensions */
+        width: 90%;
+
+        /* Position */
+        display: flex;
+        margin: 1rem 0 1rem 1rem;
+    }
+
+    .course__playlist--activate-modal {
+        /* Dimensions */
+        height: 90%;
+        width: 4%;
+
+        /* Position */
+        margin: 1rem 0 1rem 1rem;
+    }
+
+    .course__image {
+        /* Dimensions 250 x 140 */
+        border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+        height: 8rem;
+        width: 15rem;
+    }
+
+    .course__information {
+        /* Position */
+        align-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        line-height: 0.5rem;
+        margin-left: 1rem;
+        text-align: start;
+    }
+
+    .course__title {
+        /* Dimensions */
+        width: 98%;
+
+        /* Position */
+        margin: 0.5rem 0 1rem 0;
+        padding: 0;
+
+        /* Typography */
+        font-size: 1rem;
     }
 
 }

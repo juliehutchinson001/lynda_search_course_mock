@@ -1,33 +1,72 @@
-
-.header__options > * {
-    list-style: none;
+.header {
+    width: 100%;
 }
 
 @media Screen and (min-width: 1024px) {
-    .header {
-        width: 100%;
-    }
 
     .header__top {
-        display: flex;
+        /* Position */
         align-items: center;
-    }
-
-    .header__title {
-        margin-right: auto;
-    }
-
-    .header__options {
         display: flex;
-        margin-right: 10px;
     }
     
-    .header__options > * {
-        padding: 10px;
+    .header__title {
+        /* Position */
+        margin-right: auto;
+    
+        /* Typography */
+        font-size: 0.75rem;
         text-transform: uppercase;
     }
-
-
+    
+    .header__searchBar {
+        /* Dimensions */
+        line-height: 1.9rem;
+        width: 18rem;
+    
+        /* Position */
+        margin-right: 0.2rem;
+    }
+    
+    .header__primary-button {
+        margin-right: 0.2rem;
+    }
+    
+    .header__bottom {
+        /* Position */
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .header__description {
+        /* Dimensions */
+        width: 20rem;
+    
+        /* Position */
+        align-content: center;
+        line-height: 1.2rem;
+    }
+    
+    .header__options {
+        /* Position */
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        
+        /* Typography */
+        font-size: 0.8rem;
+        list-style: none;
+        text-transform: uppercase;
+        
+    }
+    
+    .header__options > li {
+        /* Position */
+        margin: 0 0.8rem;
+        padding: 0.7rem;
+    }
 
 
 }

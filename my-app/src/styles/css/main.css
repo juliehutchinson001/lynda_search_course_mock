@@ -31,7 +31,10 @@ body {
 */
 @media Screen and (min-width: 1024px) {
   .courses {
-    width: 68%; } }
+    width: 68%; }
+
+  .course__playlist--activate-modal {
+    font-size: 30px; } }
 .footer {
   width: 100%; }
 
@@ -47,14 +50,36 @@ body {
     align-items: center; }
 
   .header__title {
-    margin-right: auto; } }
+    margin-right: auto; }
+
+  .header__options {
+    display: flex;
+    margin-right: 10px; }
+
+  .header__options > * {
+    padding: 10px;
+    text-transform: uppercase; } }
 @media Screen and (min-width: 1024px) {
   .playlist {
     width: 30%; } }
-.hide-VideoOptions {
-  color: transparent; }
+.show-modal {
+  position: relative;
+  background-color: #333233;
+  color: white;
+  width: 30vw;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  top: -20px;
+  left: 20px; }
 
-.show-VideoOptions {
-  color: black; }
+.hide-modal {
+  position: absolute; }
+
+.show {
+  display: block; }
+
+.hide {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

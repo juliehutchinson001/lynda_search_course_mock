@@ -10,12 +10,23 @@ body {
 }
 */
 
+.courses {
+    /* Color */
+    background-color: $section-color;
+
+    /* Dimensions */
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
+
 
 @media Screen and (min-width: 1024px) {
 
     .courses {
         /* Dimensions */
-        width: 68%;
+        width: 60%;
+
+        /* Position */
+        margin: 0 7rem 0 0;        
     }    
 
     .course__playlist--activate-modal {

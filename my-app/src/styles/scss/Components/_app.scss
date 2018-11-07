@@ -7,7 +7,7 @@
     border: 1px solid blue;
     box-sizing: border-box;
 }
-    
+/*
 .header > * {
     border: 1px solid salmon;
     margin: 3px;
@@ -21,14 +21,23 @@
 .course {
     border: 3px solid teal;
     margin: 10px 6px;
-
+}
 
 .course > * {
     border: 1px solid orangered;
     margin: 3px;
+}
+*/
 
-
+.header__options > li {
+    border: 1px solid purple;
+}
   /* -----------------Dev Only, Delete----------------- */
+
+.App {
+    background-color: $primary-color;
+}
+
 
 @media Screen and (min-width: 1024px) {
     .App {
@@ -49,4 +58,3 @@
         text-align: center;
     }
 }
-

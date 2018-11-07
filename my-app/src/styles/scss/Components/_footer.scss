@@ -1,7 +1,18 @@
 .footer {
+    /* Color */
+    background-color: $section-color;
+
+    /* Dimensions */
     width: 100%;
+
+    /* Position */
+    margin-top: 1.25rem;
 }
 
+
+
 @media Screen and (min-width: 1024px) {
-    
+    .footer__owner-info {
+        margin-left: 0.2rem;
+    }
 }

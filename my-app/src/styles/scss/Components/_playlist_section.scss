@@ -1,8 +1,17 @@
 
+.playlist {
+    /* Color */
+    background-color: $section-color;
+
+    /* Dimensions */
+    border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
+
 @media Screen and (min-width: 1024px){
 
     .playlist {
-        width: 30%;
+        width: 20%;
+        margin: 0 1.25rem 0 7rem;
     }
 
 }

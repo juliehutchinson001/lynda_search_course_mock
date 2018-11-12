@@ -24,10 +24,10 @@ class CourseContainer extends Component {
     }
 
     createCourse(course, index) {
-        const { 
-            createPlayList, 
-            playlists, 
-            handleInputName, 
+        const {
+            createPlayList,
+            playlists,
+            handleInputName,
             handleInputDescription
         } = this.props;
 /*
@@ -38,7 +38,7 @@ class CourseContainer extends Component {
         // Else show plus
 */
         return (
-            <Course 
+            <Course
                 playlists={ playlists }
                 handleInputDescription={ handleInputDescription }
                 handleInputName={ handleInputName }
@@ -57,7 +57,7 @@ class CourseContainer extends Component {
     render() {
         const { courses, validAnswer } = this.props;
         const coursesArr = courses.map((course, i) => this.createCourse(course, i));
-        
+
         const errorMsg = <p className="courses_error" >Enter a valid search term</p>;
 
         return (
@@ -84,20 +84,20 @@ const Course = ({
         <div className="course__credentials">
             <img
                 className="course__image"
-                src={course.courseImg}
+                src={ course.courseImg }
                 alt="Course Thumbnail"
             />
             <div className="course__information">
-                <h1 className="course__title">{course.courseTitle} </h1>
+                <h1 className="course__title">{ course.courseTitle } </h1>
                 <h4 className="course__author">
-                    Author: {course.courseAuthor}
+                    Author: { course.courseAuthor }
                 </h4>
             </div>
         </div>
         <button
-            data-id={courseId}
+            data-id={ courseId }
             className="course__playlist--activate-modal"
-            onClick={openPlaylistModal}
+            onClick={ openPlaylistModal }
             type="button"
         >
             +
@@ -116,8 +116,8 @@ const Course = ({
         )}
     </div>
 );
-    
+
 export default CourseContainer;
-    
+
 // valid ? '+' : '✓'
 

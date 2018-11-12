@@ -24,6 +24,7 @@ class App extends Component {
       ],
       search: '',
       validAnswer: true,
+      activeCourse: null,
       formPlayListFields: {
         name: "",
         description: ""
@@ -38,7 +39,7 @@ class App extends Component {
   getCourses() {
     //get the courses from API helper file to update state
       fetchCourses(this.state.search.toLowerCase(), courses => {
-        this.setState({ 
+        this.setState({
           courses: courses,
           validAnswer: true
         })
@@ -144,29 +145,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderContainer 
+        <HeaderContainer
           handleSearchOnClick={ this.handleSearchOnClick }
           handleSearchOnEnter={ event => this.handleSearchOnEnter(event)}
           handleSearchInputChange={ event => this.handleSearchInputChange(event) }
           handleShowAllCourses={ this.handleShowAllCourses }
           search={ this.state.search }
         />
-        <PlaylistSection 
-          playLists={ this.state.playlists } 
+        <PlaylistSection
+          playLists={ this.state.playlists }
           isInPlaylist={ this.state.isInPlaylist }
         />
-        <CourseContainer 
+        <CourseContainer
           isInPlaylist={ this.state.isInPlaylist }
           courses={ this.state.courses }
-          validAnswer={ this.state.validAnswer }  
+          validAnswer={ this.state.validAnswer }
           createPlayList={ event => this.createPlaylist(event) }
-          playlists={ this.state.playlists } 
+          playlists={ this.state.playlists }
           handleInputName={ event => this.handleInputName(event) }
           handleInputDescription={ event => this.handleInputDescription(event) }
         />
         <Footer />
       </div>
-      
+
     );
   }
 }

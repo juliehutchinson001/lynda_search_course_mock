@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => (
 
-        <footer>By 
-            <small>Julie Hutchinson</small>
+        <footer className='footer' >By
+            <small className='footer__owner-info' >Julie Hutchinson</small>
         </footer>
 
 );

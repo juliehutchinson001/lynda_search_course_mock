@@ -268,12 +268,38 @@ body {
     left: 20px; }
 
   .hide-modal {
-    position: absolute; }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid teal; }
 
-  .show {
-    display: block; }
+  .show-new-playlist-modal {
+    position: relative;
+    background-color: #333233;
+    color: white;
+    width: 30vw;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    top: -20px;
+    left: 20px; }
 
-  .hide {
-    display: none; } }
+  .hide-new-playlist-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid brown; }
+
+    /*
+        .show {
+        display: block;
+    }
+
+    .hide {
+        display: none;
+    }
+    */ }
 
 /*# sourceMappingURL=main.css.map */

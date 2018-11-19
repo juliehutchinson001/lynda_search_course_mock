@@ -48,6 +48,7 @@ class CourseContainer extends Component {
                 course={ course }
                 // isInPlaylist={ isInPlaylist }
                 courseId={ index }
+                newId={ index }
                 activeModal={ this.state.activeModal }
                 createPlayList={ createPlayList }
             />
@@ -69,53 +70,57 @@ class CourseContainer extends Component {
 }
 
 //Block__Element--Modifier
-const Course = ({
-    course,
-    openPlaylistModal,
-    courseId,
-    activeModal,
-    handleInputDescription,
-    handleInputName,
-    createPlayList,
-    addVideoToPlaylist,
-    playlists
-}) => (
-    <div className="course">
-        <div className="course__credentials">
-            <img
-                className="course__image"
-                src={ course.courseImg }
-                alt="Course Thumbnail"
-            />
-            <div className="course__information">
-                <h1 className="course__title">{ course.courseTitle } </h1>
-                <h4 className="course__author">
-                    Author: { course.courseAuthor }
-                </h4>
+const Course = (props) => {
+    const {
+        course,
+        openPlaylistModal,
+        courseId,
+        activeModal,
+        handleInputDescription,
+        handleInputName,
+        createPlayList,
+        addVideoToPlaylist,
+        newId,
+        playlists
+    } = props;
+
+    return (
+        <div className="course">
+            <div className="course__credentials">
+                <img
+                    className="course__image"
+                    src={ course.courseImg }
+                    alt="Course Thumbnail"
+                />
+                <div className="course__information">
+                    <h1 className="course__title">{ course.courseTitle } </h1>
+                    <h4 className="course__author">
+                        Author: { course.courseAuthor }
+                    </h4>
+                </div>
             </div>
-        </div>
-        <button
-            data-id={ courseId }
-            className="course__playlist--activate-modal"
-            onClick={ openPlaylistModal }
-            type="button"
-        >
-            +
-        </button>
-        {false && (
+            <button
+                data-id={ courseId }
+                className="course__playlist--activate-modal"
+                onClick={ openPlaylistModal }
+                type="button"
+            >
+                +
+            </button>
             <ModalContainer
-                handleInputDescription={handleInputDescription}
-                handleInputName={handleInputName}
-                addVideoToPlaylist={addVideoToPlaylist}
-                activeModal={activeModal}
-                courseId={courseId}
-                createPlayList={createPlayList}
-                openPlaylistModal={openPlaylistModal}
-                playlists={playlists}
+                handleInputDescription={ handleInputDescription }
+                handleInputName={ handleInputName }
+                addVideoToPlaylist={ addVideoToPlaylist }
+                activeModal={ activeModal }
+                newId={ newId }
+                courseId={ courseId }
+                createPlayList={ createPlayList }
+                openPlaylistModal={ openPlaylistModal }
+                playlists={ playlists }
             />
-        )}
-    </div>
-);
+        </div>
+    );
+}
 
 export default CourseContainer;
 

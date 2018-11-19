@@ -9,20 +9,23 @@ class ModalContainer extends Component {
         super(props);
 
         this.state = {
-            showModal: null
+            showNewModal: null
         }
 
         this.showAllPlaylists = this.showAllPlaylists.bind(this);
-        this.showPlaylistModal = this.showPlaylistModal.bind(this);
-        this.hidePlaylistModal = this.hidePlaylistModal.bind(this);
+        this.hideNewPlaylistModal = this.hideNewPlaylistModal.bind(this);
     }
 
-    showPlaylistModal() {
-        this.setState({ showModal: true });
+    showNewPlaylistModal(event) {
+
+        // const { createPlayList, openPlaylistModal, newId, handleInputDescription, handleInputName } = this.props;
+        // debugger;
+        // this.setState({ showNewModal: parseInt(event.target.dataset.newplaylistid, 10) });
+        this.setState({ showNewModal: true });
     }
 
-    hidePlaylistModal() {
-        this.setState({ showModal: false });
+    hideNewPlaylistModal() {
+        this.setState({ showNewModal: null });
     }
 
     showAllPlaylists() {
@@ -31,9 +34,9 @@ class ModalContainer extends Component {
 
         return (
             this.props.playlists.map((playlist, index) => (
-                <button 
+                <button
                     key={ index }
-                    type='button' 
+                    type='button'
                     className="modal__list--existing"
                     onClick={ (playlist) => addVideoToPlaylist(playlist) }
                     >{ playlist.name }
@@ -46,115 +49,116 @@ class ModalContainer extends Component {
     }
 
     render() {
-
-
-        const { 
-            playlists, 
-            handleInputDescription, 
-            handleInputName, 
-            addVideoToPlaylist, 
-            activeModal, 
-            courseId, 
-            createPlayList, 
-            openPlaylistModal
-
+        const {
+            activeModal,
+            courseId,
+            newId,
+            createPlayList,
+            openPlaylistModal,
+            handleInputDescription,
+            handleInputName
         } = this.props;
 
         return(
             <Fragment>
-                <PlaylistModal 
-                    playlists={ playlists }
-                    showModal={ this.state.showModal } 
-                    addVideoToPlaylist={ addVideoToPlaylist }
+                <PlaylistModal
                     activeModal={ activeModal }
                     courseId={ courseId }
-                    openPlaylistModal={ openPlaylistModal }
-                    showPlaylistModal={ this.showPlaylistModal }
-                    hidePlaylistModal={ this.hidePlaylistModal }
+                    newId={ newId }
+                    showNewPlaylistModal={ event => this.showNewPlaylistModal(event) }
                     showAllPlaylists={ this.showAllPlaylists }
                 />
-                <NewPlaylist 
+                <NewPlaylist
+                    newId={ newId }
+                    showNewModal={ this.state.showNewModal }
                     createPlayList={ createPlayList }
                     openPlaylistModal={ openPlaylistModal }
-                    showModal={ this.state.showModal } 
                     handleInputDescription={ handleInputDescription }
                     handleInputName={ handleInputName }
-                    showPlaylistModal={ this.showPlaylistModal }
-                    hidePlaylistModal={ this.hidePlaylistModal }
+                    showNewPlaylistModal={ this.showNewPlaylistModal }
+                    hideNewPlaylistModal={ this.hideNewPlaylistModal }
                 />
             </Fragment>
-            
         );
     }
-
 }
 
 
-const PlaylistModal = ({ playlists, showModal, addVideoToPlaylist, activeModal, courseId, openPlaylistModal, hidePlaylistModal, showPlaylistModal, showAllPlaylists }) => (
-
+const PlaylistModal = ({ activeModal, courseId, newId,  showNewPlaylistModal, showAllPlaylists }) => (
     <div className={ activeModal === courseId ? "modal show-modal" : "modal hide-modal" } >
         <h1 className="modal__header" >Add to...</h1>
-        <button 
+        <button
             type='button'
-            className="modal__list--new" 
-            onClick={ showPlaylistModal }
+            className="modal__list--new"
+            data-newplaylistid={ newId }
+            onClick={ showNewPlaylistModal }
             >New Playlist
         </button>
 
         { showAllPlaylists() }
-        
-        
+
+
     </div>
 );
 
-const NewPlaylist = ({ showModal, hidePlaylistModal, newPlaylist, openPlaylistModal, handleInputDescription, handleInputName, createPlayList }) => (
+const NewPlaylist = (props) => {
+    const {
+        newId,
+        showNewModal,
+        createPlayList,
+        openPlaylistModal,
+        handleInputDescription,
+        handleInputName,
+        hideNewPlaylistModal
+    } = props;
 
-    <div className={ showModal === true ? "show-modal" : "hide-modal" } >
-        <header className="newPlaylist__header" >
-            <h1 className="newPlaylist__title" >Create Playlist</h1>
-            <button 
-                className="newPlaylist__button--return" 
-                type='button' 
-                onClick={ hidePlaylistModal }
-            > 
-                {" < "}
-            </button>
-        </header>
+    return (
+        <div className={ showNewModal ? "show-new-playlist-modal" : "hide-new-playlist-modal" } >
+            <header className="newPlaylist__header" >
+                <h1 className="newPlaylist__title" >Create Playlist</h1>
+                <button
+                    className="newPlaylist__button--return"
+                    type='button'
+                    onClick={ hideNewPlaylistModal }
+                >
+                    {" < "}
+                </button>
+            </header>
 
-        <Form 
-            showModal={ showModal }
-            newPlaylist={ newPlaylist }
-            openPlaylistModal={ openPlaylistModal }
-            handleInputDescription={ handleInputDescription }
-            handleInputName={ handleInputName }
-            createPlayList={ createPlayList }
-        />
-    </div>
-); 
+            <Form
+                showNewModal={ showNewModal }
+                openPlaylistModal={ openPlaylistModal }
+                handleInputDescription={ handleInputDescription }
+                handleInputName={ handleInputName }
+                createPlayList={ createPlayList }
+            />
+        </div>
+    );
+}
 
-const Form = ({ showModal, newPlaylist, openPlaylistModal, handleInputDescription, handleInputName, createPlayList }) => (
+const Form = ({ showNewModal, handleInputDescription, handleInputName, createPlayList }) => (
 
-    <form className={ showModal === true ? "newPlaylist__form--new show-modal" : "newPlaylist__form--new hide-modal" } onSubmit={ createPlayList } >
+    <form className={ showNewModal === true ? "newPlaylist__form--new show-modal" : "newPlaylist__form--new hide-modal" } onSubmit={ createPlayList } >
         <label>Playlist name
-            <input 
-                className={ showModal === true ? "newPlaylist__input--name show-modal" : "newPlaylist__input--name hide-modal"} 
-                name='playlist-name' 
-                type='text' 
-                onChange={ handleInputName } 
-                required 
+            <input
+                className={ showNewModal === true ? "newPlaylist__input--name show-modal" : "newPlaylist__input--name hide-modal"}
+                name='playlist-name'
+                type='text'
+                onChange={ handleInputName }
+                required
             />
         </label>
         <label>Description
-            <input 
-                className={ showModal === true ? "show-modal newPlaylist__input--description" : "hide-modal newPlaylist__input--description"} 
-                name='playlist-description' 
-                type='text' 
-                onChange={ handleInputDescription } 
+            <input
+                className={ showNewModal === true ? "show-new-playlist-modal newPlaylist__input--description" : "hide-new-playlist-modal newPlaylist__input--description"}
+                name='playlist-description'
+                type='text'
+                onChange={ handleInputDescription }
             />
         </label>
-        <input 
-            type='submit' 
-            value='Create' 
+        <input
+            type='submit'
+            value='Create'
         />
     </form>
 
@@ -194,7 +198,7 @@ export default ModalContainer;
     }
 
     const PlaylistModalPresentation = ({ courseId, activeModal, isOpen, openNewPlaylist, hideNewPlaylist }) => {
-        
+
         return (
             <div className={ courseId === activeModal ? 'show' : 'hide' }>
                 <button onClick={ openNewPlaylist }>Open New Playlist</button>
@@ -202,78 +206,78 @@ export default ModalContainer;
                     Content
                     <button onClick={ hideNewPlaylist }>{"<"}</button>
                 </div>
-                
+
             </div>
         );
     }
 
 
 
-    const PlaylistModal = ({addVideoToPlaylist, activeModal, courseId, showPlaylistModal, showModal, playlists }) => (
+    const PlaylistModal = ({addVideoToPlaylist, activeModal, courseId, showNewPlaylistModal, showNewModal, playlists }) => (
 
         <div className={ activeModal === courseId ? "modal show-modal" : "modal hide-modal" } >
             <h1 className="modal__header" >Add to...</h1>
-            <button 
+            <button
                 type='button'
-                onClick={ showPlaylistModal }
+                onClick={ showNewPlaylistModal }
                 >New Playlist
             </button>
             { playlists.map((playlist, index) => (
-                <button 
+                <button
                     key={ index }
-                    type='button' 
-                    className={ activeModal === courseId ? "modal__list--existing show-modal" : "modal__list--existing hide-modal" }            
+                    type='button'
+                    className={ activeModal === courseId ? "modal__list--existing show-modal" : "modal__list--existing hide-modal" }
                     onClick={ addVideoToPlaylist(playlist) }
                     >{ playlist.name }
                     <span>+</span>
                 </button>
                 )
             )}
-            
+
         </div>
     );
 
-    const NewPlaylist = ({ showModal, newPlaylist, openPlaylistModal, handleInputDescription, handleInputName, createPlayList }) => (
+    const NewPlaylist = ({ showNewModal, newPlaylist, openPlaylistModal, handleInputDescription, handleInputName, createPlayList }) => (
 
-        <div className={ showModal === true ? "show-modal" : "hide-modal" 
+        <div className={ showNewModal === true ? "show-modal" : "hide-modal"
         } >
             <header className="newPlaylist__header" >
                 <h1 className="newPlaylist__title" >Create Playlist</h1>
-                <button 
-                    className="newPlaylist__button--return" 
-                    type='button' 
+                <button
+                    className="newPlaylist__button--return"
+                    type='button'
                     onClick={ openPlaylistModal }
-                > 
+                >
                     {" < "}
                 </button>
             </header>
 
             <form className="newPlaylist__form--new" onSubmit={ createPlayList } >
                 <label>Playlist name
-                    <input 
-                        className="newPlaylist__input--name" 
-                        name='playlist-name' 
-                        type='text' 
-                        onChange={ handleInputName } 
-                        required 
+                    <input
+                        className="newPlaylist__input--name"
+                        name='playlist-name'
+                        type='text'
+                        onChange={ handleInputName }
+                        required
                     />
                 </label>
                 <label>Description
-                    <input 
-                        className="newPlaylist__input--description" 
-                        name='playlist-description' 
-                        type='text' 
-                        onChange={ handleInputDescription } 
+                    <input
+                        className="newPlaylist__input--description"
+                        name='playlist-description'
+                        type='text'
+                        onChange={ handleInputDescription }
                     />
                 </label>
-                <input 
-                    type='submit' 
-                    value='Create' 
+                <input
+                    type='submit'
+                    value='Create'
                     onClick={ openPlaylistModal }
                 />
             </form>
         </div>
-    );  
+    );
 
 
 */

@@ -5,7 +5,10 @@ const Header = props => {
 
     return (
         <header>
-
+            <h1>Lynda</h1>
+            <input type='search' />
+            <button type='button'>Search</button>
+            <button type='button'>See All</button>
         </header>
     );
 };

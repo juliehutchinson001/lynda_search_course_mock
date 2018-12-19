@@ -7,7 +7,10 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-
+			inputSearch: '',
+			playlist: {
+				'my playlist': []
+			}
 		};
 	}
 

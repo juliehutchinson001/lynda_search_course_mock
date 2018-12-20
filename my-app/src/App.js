@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header';
+import fetchCourses from './helpers/get_api_courses';
 
 class App extends Component {
 

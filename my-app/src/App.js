@@ -15,10 +15,16 @@ class App extends Component {
 		};
 	}
 
+	handlesearch(event) {
+
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<Header />
+				<Header
+					handlesearch={event => this.handlesearch(event)}
+				/>
 			</div>
 
 		);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import fetchCourses from './helpers/get_api_courses';
+import validateSearch from './helpers/validate_search';
 
 class App extends Component {
 
@@ -16,7 +17,12 @@ class App extends Component {
 	}
 
 	handlesearch(event) {
+		const enterKey = event.keyCode;
+		const isEnterKeyPressed = enterKey === 13;
 
+		if (isEnterKeyPressed) {
+			validateSearch
+		}
 	}
 
 	render() {

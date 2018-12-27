@@ -17,11 +17,11 @@ class App extends Component {
 	}
 
 	handlesearch(event) {
-		const enterKey = event.keyCode;
-		const isEnterKeyPressed = enterKey === 13;
+		const enterKey = event.keyCode || event.key;
+		const isEnterKeyPressed = enterKey === 13 || enterKey === 'Enter';
 
 		if (isEnterKeyPressed) {
-			validateSearch
+			validateSearch()
 		}
 	}
 

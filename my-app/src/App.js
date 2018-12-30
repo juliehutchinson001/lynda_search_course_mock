@@ -30,6 +30,7 @@ class App extends Component {
 			<div className="App">
 				<Header
 					handlesearch={event => this.handlesearch(event)}
+					getSearchInput={event => this.getSearchInput(event)}
 				/>
 			</div>
 

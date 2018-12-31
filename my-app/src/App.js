@@ -25,6 +25,12 @@ class App extends Component {
 		}
 	}
 
+	getSearchInput(event) {
+		const searchTerm = event.target.value;
+
+
+	}
+
 	render() {
 		return (
 			<div className="App">

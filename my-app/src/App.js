@@ -16,18 +16,18 @@ class App extends Component {
 		};
 	}
 
-	handlesearch(event) {
+	handlesearch(event, query) {
 		const enterKey = event.keyCode || event.key;
 		const isEnterKeyPressed = enterKey === 13 || enterKey === 'Enter';
 
 		if (isEnterKeyPressed) {
-			validateSearch()
+			validateSearch(query)
 		}
 	}
 
 	getSearchInput(event) {
 		const searchTerm = event.target.value;
-
+		this.handlesearch(_, searchTerm)
 
 	}
 

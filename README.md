@@ -2,13 +2,6 @@ This is a mock site of Lynda Learning website built on react, sass and node (bac
 
 Lynda Mock
 
-kyrl
-kirl
-Kiyrl
-Kyirl
-Kry
-kri
-
 /Home Func
 . When I click on Main Header, take me back to home.
 . Add functionality of search (onChange to search)

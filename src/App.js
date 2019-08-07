@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import fetchCourses from "./helpers/get_api_courses";
 import validateSearch from "./helpers/validate_search";
-import HeaderContainer from "./components/header";
-import CourseContainer from "./components/courses";
-import PlaylistSection from "./components/playlist_section";
-import Footer from "./components/footer";
+import HeaderContainer from "./components/header-components";
+import CourseContainer from "./components/courses-components";
+import PlaylistSection from "./components/playlist-section";
+import Footer from "./components/footer-component";
 
 class App extends Component {
   constructor(props) {

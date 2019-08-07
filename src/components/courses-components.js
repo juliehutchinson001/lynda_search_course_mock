@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ModalContainer from "./playlist_modal";
+import ModalContainer from "./playlist-modal";
 
 class CourseContainer extends Component {
   constructor(props) {

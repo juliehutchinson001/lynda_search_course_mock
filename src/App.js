@@ -3,7 +3,7 @@ import fetchCourses from "./helpers/get_api_courses";
 import validateSearch from "./helpers/validate_search";
 import HeaderContainer from "./components/header-components";
 import CourseContainer from "./components/courses-components";
-import PlaylistSection from "./components/playlist-section";
+import PlaylistSection from "./components/playlist-components";
 import Footer from "./components/footer-component";
 
 class App extends Component {

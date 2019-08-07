@@ -1,9 +1,8 @@
 const validateSearch = searchedWord => {
-    const categories = ["java", "javascript", "python", "react"];
-    const categoryExist = categories.includes( searchedWord.toLowerCase() );
+  const categories = ["java", "javascript", "python", "react"];
+  const categoryExist = categories.includes(searchedWord.toLowerCase());
 
-    return categoryExist;
-
+  return categoryExist;
 };
 
 export default validateSearch;

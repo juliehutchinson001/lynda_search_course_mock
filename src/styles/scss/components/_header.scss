@@ -1,147 +1,148 @@
 .header {
-    /* Dimensions */
-    border-radius: 0 0 0.2rem 0.2rem;
-    width: 100%;
-
-    /* Position */
-    margin-bottom: 1.25rem;
+	border-radius: 0 0 0.2rem 0.2rem;
+	width: 100%;
+	margin: 0;
+	margin-bottom: 1.25rem;
+  background: linear-gradient(#161d20, #1b2327);
+	color: #f2f5f8;
 }
 
 .header__top {
-    /* Color */
-    background-color: #333233;
-    color: white;
-
-    /* Position */
-    padding: 0.7rem 0;
+	margin: 0;
+	align-items: center;
+  display: flex;
 }
 
 .header__title {
-    /* Typography */
-    font-size: 0.75rem;
-    text-transform: uppercase;
+  margin: 1rem auto 1rem 1rem;
+	font-size: 0.75rem;
 }
 
-.header__search-bar {
-    /* Color */
-    outline: none;
+.header__searchBar {
+	outline: none;
 
-    /* Dimensions */
-    border: 0.1rem solid black;
-    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 
-    /* Typography */
-    font-size: 1rem;
+	border: 2px solid transparent;
+	border-radius: 2px;
+	height: 1.9rem;
+	line-height: 1.9rem;
+	width: 18rem;
+
+  margin-right: 3rem;
+  padding:  0.2rem 0 0.2rem 0.8rem;
+
+	font-size: 1rem;
+}
+
+.header__primary-button {
+  margin-right: 1.5rem;
+  border: 2px solid #f2f5f8;
+  border-radius: 2px;
+  width: 5.6rem;
+  height: 1.9rem;
+  color: #f2f5f8;
+  background-color: transparent;
+  font-size: 0.8rem;
+}
+
+.header__secondary-button {
+  margin-right: 1.5rem;
+  width: 5.6rem;
+  height: 1.9rem;
+
+  border: 2px solid transparent;
+  border-radius: 2px;
+  color: #f2f5f8;
+  background-color: #0f7f44;
+  font-size: 0.8rem;
 }
 
 .header__bottom {
-    /* Color */
-    background-color: $section-color;
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+	line-height: 2.2rem;
+}
+
+.hero__title {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  width: 90%;
+  margin: 3rem 0;
+}
+
+.hero__subtitle {
+  color: #c7c5c5;
+  margin: 1rem 0 3rem 0;
+  align-content: center;
+}
+
+.header__options {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.header__option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0 1rem;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+}
+
+.header__button-option {
+  background-color: transparent;
+  border: 2px solid transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  color: #213239;
+  padding: 5px 10px;
+  font-size: 26px;
+  font-weight: 500;
+  transition: opacity 0.5s;
+  z-index: 10;
+  opacity: 1;
+}
+
+.react-option {
+  background: url('https://cdn.lynda.com/courses/625945-636643992857925180_270x480_thumb.jpg');
+}
+.python-option {
+  background: url('https://cdn.lynda.com/courses/661773-636525828714337558_270x480_thumb.jpg');
+}
+.javascript-option {
+  background: url('https://cdn.lynda.com/courses/706928-636695284107370449_270x480_thumb.jpg');
+}
+.java-option {
+  background: url('https://cdn.lynda.com/courses/656822-636474547828279500_270x480_thumb.jpg');
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(94, 94, 94, 0.5);
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.header__option:hover > .overlay {
+  opacity: 0;
 }
 
 @media Screen and (min-width: 1024px) {
-
-    .header__top {
-        /* Position */
-        align-items: center;
-        display: flex;
-    }
-    
-    .header__title {
-        /* Position */
-        margin: 0 auto 0 0.3rem;
-    }
-    
-    .header__search-bar {
-        /* Dimensions */
-        width: 18rem;
-
-        /* Position */
-        margin-right: 0.2rem;
-        padding:  0.2rem 0 0.2rem 0.8rem;
-    }
-    
-    .header__primary-button {
-        /* Color */
-        outline: none;
-
-        /* Dimensions */
-        border-radius: 0.8rem 0.8rem 0.8rem 0.8rem;
-
-        /* Position */
-        margin-right: 0.2rem;
-        padding: 0.3rem 1.2rem;
-
-        /* Typography */
-        font-size: 0.65rem;
-    }
-
-    .header__primary-button:hover {
-        /* Color */
-        background-color: #595C6B;
-        color: white;
-    }
-    
-    .header__secondary-button {
-        /* Color */
-        outline: none;
-        
-        /* Dimensions */
-        border-radius: 0.8rem 0.8rem 0.8rem 0.8rem;
-        
-        /* Position */
-        margin-right: 0.2rem;
-        padding: 0.3rem 1rem;
-        
-        /* Typography */
-        font-size: 0.65rem;
-    }
-
-    .header__secondary-button:hover {
-        /* Color */
-        background-color: #595C6B;
-        color: white;
-    }
-    .header__bottom {
-        /* Position */
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .header__description {
-        /* Dimensions */
-        width: 20rem;
-    
-        /* Position */
-        align-content: center;
-        line-height: 1.2rem;
-    }
-    
-    .header__options {
-        /* Position */
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        
-        /* Typography */
-        font-size: 0.8rem;
-        list-style: none;
-        text-transform: uppercase;
-        
-    }
-    
-    .header__options > li {
-        /* Dimensions */
-        border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
-        height: 8rem;
-        width: 15rem;
-        
-        /* Position */
-        margin: 0 0.8rem;
-        padding: 0.7rem;
-    }
-
-
+  .header__options {
+    font-size: 0.8rem;
+  }
 }

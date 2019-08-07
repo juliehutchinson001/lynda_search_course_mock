@@ -26,7 +26,7 @@ const Header = props => {
   return (
     <header className="header">
       <section className="header__top">
-        <h1 className="header__title">Lynda Learning</h1>
+        <h1 className="header__title">LYNDA MOCK</h1>
         <input
           className="header__searchBar"
           name="search"
@@ -52,16 +52,30 @@ const Header = props => {
         </button>
       </section>
       <section className="header__bottom">
-        <p className="header__description">
-          Welcome to the next stepping stone of your learning. Type In your
-          selection from the following options:
+        <h1 className="hero__title">
+          Welcome to the next stepping stone to build up your career
+        </h1>
+        <p className="hero__subtitle">
+          Select from the following options to begin learning:
         </p>
 
         <ul className="header__options">
-          <li>Java</li>
-          <li>Javascript</li>
-          <li>Python</li>
-          <li>React</li>
+          <li className="header__option java-option">
+            <div className="overlay" />
+            <button className="header__button-option">Java</button>
+          </li>
+          <li className="header__option javascript-option">
+            <div className="overlay" />
+            <button className="header__button-option">Javascript</button>
+          </li>
+          <li className="header__option python-option">
+            <div className="overlay" />
+            <button className="header__button-option">Python</button>
+          </li>
+          <li className="header__option react-option">
+            <div className="overlay" />
+            <button className="header__button-option">React</button>
+          </li>
         </ul>
       </section>
     </header>

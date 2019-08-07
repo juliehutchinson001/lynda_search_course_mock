@@ -1,51 +1,58 @@
 @media Screen and (min-width: 1024px) {
-    .show-modal {
-        // color: black;
-        position: relative;
-        background-color: #333233;
-        color: white;
-        width: 30vw;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 15px;
-        top: -20px;
-        left: 20px;
-    }
+  .show-modal {
+    background-color: #333233;
+    color: white;
 
-    .hide-modal {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: relative;
-        border: 1px solid teal;
-    }
+    width: 30vw;
+    border-radius: 5px;
 
-    .show-new-playlist-modal {
-        position: relative;
-        background-color: #333233;
-        color: white;
-        width: 30vw;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 15px;
-        top: -20px;
-        left: 20px;
-    }
-    .hide-new-playlist-modal {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        border: 1px solid brown;
-    }
+    left: 20px;
+    padding: 10px;
+    position: relative;
+    top: -20px;
 
-    /*
-        .show {
-        display: block;
+    font-size: 15px;
+  }
+
+  .hide-modal {
+    border: 1px solid teal;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .show-new-playlist-modal {
+    background-color: #333233;
+    color: white;
+
+    width: 30vw;
+    border-radius: 5px;
+
+    left: 20px;
+    padding: 10px;
+    position: relative;
+    top: -20px;
+
+    font-size: 15px;
+  }
+
+  .hide-new-playlist-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid brown;
+  }
+
+  /*
+    .show {
+      display: block;
     }
 
     .hide {
-        display: none;
+      display: none;
     }
     */
 }

@@ -35,6 +35,7 @@ body {
   font-size: 16px; }
 
 .App {
+  background-color: #E5E5E5;
   margin: 0;
   padding: 0;
   display: flex;
@@ -44,25 +45,21 @@ body {
   font-family: sans-serif;
   text-align: center; }
 
-@media Screen and (min-width: 1024px) {
+@media Screen and (min-width: 768px) {
   .App {
     width: 100%;
-    box-sizing: border-box;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    font-size: 16px;
-    text-align: center; } }
+    justify-content: flex-start; } }
 .courses {
   background-color: #FFFEFF;
   border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
 
-@media Screen and (min-width: 1024px) {
+@media Screen and (min-width: 768px) {
   .courses {
-    width: 60%;
-    margin: 0 7rem 0 0; }
+    width: 65%;
+    margin: 0; }
 
   .course__playlist--activate-modal {
     font-size: 30px; }
@@ -121,7 +118,6 @@ body {
   .footer__owner-info {
     margin-left: 0.2rem; } }
 .header {
-  border-radius: 0 0 0.2rem 0.2rem;
   width: 100%;
   margin: 0;
   margin-bottom: 1.25rem;
@@ -149,39 +145,39 @@ body {
   font-size: 1rem; }
 
 .header__primary-button {
-  margin-right: 1.5rem;
-  border: 2px solid #f2f5f8;
-  border-radius: 2px;
-  width: 5.6rem;
-  height: 1.9rem;
-  color: #f2f5f8;
   background-color: transparent;
+  border: 2px solid #f2f5f8;
+  color: #f2f5f8;
+  height: 1.9rem;
+  width: 5.6rem;
+  margin-right: 1.5rem;
+  border-radius: 2px;
   font-size: 0.8rem; }
 
 .header__secondary-button {
-  margin-right: 1.5rem;
+  background-color: #0f7f44;
+  border: 2px solid transparent;
+  color: #f2f5f8;
   width: 5.6rem;
   height: 1.9rem;
-  border: 2px solid transparent;
+  margin-right: 1.5rem;
   border-radius: 2px;
-  color: #f2f5f8;
-  background-color: #0f7f44;
   font-size: 0.8rem; }
 
 .header__bottom {
+  margin: 0;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
   line-height: 2.2rem; }
 
 .hero__title {
-  font-size: 2rem;
-  line-height: 1.5;
-  font-weight: 500;
   width: 90%;
-  margin: 3rem 0; }
+  margin: 3rem 0;
+  line-height: 1.5;
+  font-size: 2rem;
+  font-weight: 500; }
 
 .hero__subtitle {
   color: #c7c5c5;
@@ -243,17 +239,18 @@ body {
 .header__option:hover > .overlay {
   opacity: 0; }
 
-@media Screen and (min-width: 1024px) {
+@media Screen and (min-width: 768px) {
   .header__options {
     font-size: 0.8rem; } }
 .playlist {
   background-color: #FFFEFF;
   border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
 
-@media Screen and (min-width: 1024px) {
+@media Screen and (min-width: 768px) {
   .playlist {
-    width: 20%;
-    margin: 0 1.25rem 0 7rem; } }
+    min-height: 16rem;
+    width: 30%;
+    margin: 0 1rem 0 0; } }
 @media Screen and (min-width: 1024px) {
   .show-modal {
     background-color: #333233;

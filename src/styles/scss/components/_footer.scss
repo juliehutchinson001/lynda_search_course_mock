@@ -1,11 +1,16 @@
 .footer {
-    background-color: $section-color;
-    width: 100%;
-    margin-top: 1.25rem;
+  color: #464646;
+
+  height: 2rem;
+  width: 100%;
+
+  text-align: start;
+  margin-top: 1.25rem;
 }
 
-@media Screen and (min-width: 1024px) {
-    .footer__owner-info {
-        margin-left: 0.2rem;
-    }
+.footer__owner-info {
+  color: #666;
+
+  margin-left: 0.2rem;
+  font-style: italic;
 }

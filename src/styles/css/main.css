@@ -2,21 +2,7 @@
 * {
   box-sizing: border-box; }
 
-.App > * {
-  border: 1px solid blue;
-  box-sizing: border-box; }
-
 /*
-.header > * {
-    border: 1px solid salmon;
-    margin: 3px;
-}
-
-.header__bottom > * {
-    border: 1px solid green;
-    margin: 3px;
-}
-
 .course {
     border: 3px solid teal;
     margin: 10px 6px;
@@ -27,9 +13,6 @@
     margin: 3px;
 }
 */
-.header__options > li {
-  border: 1px solid purple; }
-
 /* -----------------Dev Only, Delete----------------- */
 body {
   font-size: 16px; }
@@ -53,19 +36,21 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start; } }
 .courses {
-  background-color: #FFFEFF;
-  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
+  background-color: #F2F5F8;
+  border-radius: 0.2rem; }
 
 @media Screen and (min-width: 768px) {
   .courses {
+    min-height: 30rem;
     width: 65%;
+    max-width: 63rem;
     margin: 0; }
 
   .course__playlist--activate-modal {
     font-size: 30px; }
 
   .course {
-    border: 2px solid #e7e7e7;
+    border: 2px solid #E5E5E5;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -110,19 +95,24 @@ body {
 
 /* -------Delete------- */
 .footer {
-  background-color: #FFFEFF;
+  color: #464646;
+  height: 2rem;
   width: 100%;
-  margin-top: 1.25rem; }
+  text-align: start;
+  margin: 1.25rem 0 0 1rem;
+  position: static; }
 
-@media Screen and (min-width: 1024px) {
-  .footer__owner-info {
-    margin-left: 0.2rem; } }
+.footer__owner-info {
+  color: #666;
+  margin-left: 0.2rem;
+  font-style: italic; }
+
 .header {
   width: 100%;
   margin: 0;
   margin-bottom: 1.25rem;
   background: linear-gradient(#161d20, #1b2327);
-  color: #f2f5f8; }
+  color: #F2F5F8; }
 
 .header__top {
   margin: 0;
@@ -146,8 +136,8 @@ body {
 
 .header__primary-button {
   background-color: transparent;
-  border: 2px solid #f2f5f8;
-  color: #f2f5f8;
+  border: 2px solid #F2F5F8;
+  color: #F2F5F8;
   height: 1.9rem;
   width: 5.6rem;
   margin-right: 1.5rem;
@@ -157,7 +147,7 @@ body {
 .header__secondary-button {
   background-color: #0f7f44;
   border: 2px solid transparent;
-  color: #f2f5f8;
+  color: #F2F5F8;
   width: 5.6rem;
   height: 1.9rem;
   margin-right: 1.5rem;
@@ -180,7 +170,7 @@ body {
   font-weight: 500; }
 
 .hero__subtitle {
-  color: #c7c5c5;
+  color: #C7C5C5;
   margin: 1rem 0 3rem 0;
   align-content: center; }
 
@@ -243,17 +233,36 @@ body {
   .header__options {
     font-size: 0.8rem; } }
 .playlist {
-  background-color: #FFFEFF;
-  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem; }
+  background-color: #F2F5F8;
+  border-radius: 0.2rem; }
 
 @media Screen and (min-width: 768px) {
   .playlist {
-    min-height: 16rem;
+    min-height: 30rem;
     width: 30%;
-    margin: 0 1rem 0 0; } }
+    max-width: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1rem; }
+
+  .playlist__header-container {
+    height: 3rem;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5; }
+
+  .playlist__header {
+    margin: 0 1rem; }
+
+  .playlist__link--whole {
+    color: #464646;
+    text-decoration: none;
+    margin: 0 1rem; } }
 @media Screen and (min-width: 1024px) {
   .show-modal {
-    background-color: #333233;
+    background-color: #213239;
     color: white;
     width: 30vw;
     border-radius: 5px;
@@ -272,7 +281,7 @@ body {
     position: relative; }
 
   .show-new-playlist-modal {
-    background-color: #333233;
+    background-color: #213239;
     color: white;
     width: 30vw;
     border-radius: 5px;

@@ -1,10 +1,9 @@
 .header {
-	border-radius: 0 0 0.2rem 0.2rem;
 	width: 100%;
 	margin: 0;
 	margin-bottom: 1.25rem;
   background: linear-gradient(#161d20, #1b2327);
-	color: #f2f5f8;
+	color: $section-color;
 }
 
 .header__top {
@@ -21,7 +20,6 @@
 .header__searchBar {
 	outline: none;
 
-
 	border: 2px solid transparent;
 	border-radius: 2px;
 	height: 1.9rem;
@@ -35,47 +33,56 @@
 }
 
 .header__primary-button {
-  margin-right: 1.5rem;
-  border: 2px solid #f2f5f8;
-  border-radius: 2px;
-  width: 5.6rem;
-  height: 1.9rem;
-  color: #f2f5f8;
   background-color: transparent;
+  border: 2px solid $section-color;
+  color: $section-color;
+
+  height: 1.9rem;
+  width: 5.6rem;
+
+  margin-right: 1.5rem;
+  border-radius: 2px;
+
   font-size: 0.8rem;
 }
 
 .header__secondary-button {
-  margin-right: 1.5rem;
+  background-color: #0f7f44;
+  border: 2px solid transparent;
+  color: $section-color;
+
   width: 5.6rem;
   height: 1.9rem;
 
-  border: 2px solid transparent;
+  margin-right: 1.5rem;
   border-radius: 2px;
-  color: #f2f5f8;
-  background-color: #0f7f44;
+
   font-size: 0.8rem;
 }
 
 .header__bottom {
-	align-items: center;
+  margin: 0;
+
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
 	line-height: 2.2rem;
 }
 
 .hero__title {
-  font-size: 2rem;
-  line-height: 1.5;
-  font-weight: 500;
   width: 90%;
+
   margin: 3rem 0;
+  line-height: 1.5;
+
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .hero__subtitle {
-  color: #c7c5c5;
+  color: $light-grey;
+
   margin: 1rem 0 3rem 0;
   align-content: center;
 }
@@ -106,7 +113,7 @@
   width: 100%;
   height: 100%;
   border-radius: 3px;
-  color: #213239;
+  color: $darkest-grey;
   padding: 5px 10px;
   font-size: 26px;
   font-weight: 500;
@@ -141,7 +148,7 @@
   opacity: 0;
 }
 
-@media Screen and (min-width: 1024px) {
+@media Screen and (min-width: 768px) {
   .header__options {
     font-size: 0.8rem;
   }

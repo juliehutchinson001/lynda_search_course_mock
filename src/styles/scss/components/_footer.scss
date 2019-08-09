@@ -1,15 +1,16 @@
 .footer {
-  color: #464646;
+  color: $nullified-color;
 
   height: 2rem;
   width: 100%;
 
   text-align: start;
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 0 1rem;
+  position: static;
 }
 
 .footer__owner-info {
-  color: #666;
+  color: $neutral-color;
 
   margin-left: 0.2rem;
   font-style: italic;

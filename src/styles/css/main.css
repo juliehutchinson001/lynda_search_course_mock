@@ -24,7 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-family: sans-serif;
   text-align: center; }
 
@@ -263,7 +263,7 @@ body {
 @media Screen and (min-width: 1024px) {
   .show-modal {
     background-color: #213239;
-    color: white;
+    color: #F2F5F8;
     width: 30vw;
     border-radius: 5px;
     left: 20px;
@@ -282,7 +282,7 @@ body {
 
   .show-new-playlist-modal {
     background-color: #213239;
-    color: white;
+    color: #F2F5F8;
     width: 30vw;
     border-radius: 5px;
     left: 20px;

@@ -1,7 +1,7 @@
 @media Screen and (min-width: 1024px) {
   .show-modal {
-    background-color: #333233;
-    color: white;
+    background-color: $darkest-grey;
+    color: $section-color;
 
     width: 30vw;
     border-radius: 5px;
@@ -25,8 +25,8 @@
   }
 
   .show-new-playlist-modal {
-    background-color: #333233;
-    color: white;
+    background-color: $darkest-grey;
+    color: $section-color;
 
     width: 30vw;
     border-radius: 5px;

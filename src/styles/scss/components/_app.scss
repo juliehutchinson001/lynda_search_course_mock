@@ -36,7 +36,7 @@ body {
 
 @media Screen and (min-width: 768px) {
   .App {
-    width: 100%;
+    width: $w-full;
 
     display: flex;
     flex-direction: row;

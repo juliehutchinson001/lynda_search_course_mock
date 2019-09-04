@@ -2,9 +2,9 @@ import React from "react";
 
 const PlaylistSection = ({ playLists, isInPlaylist }) => (
   <aside id="playlists" className="playlist">
-    <header className="playlist__header-container">
-      <h1 className="playlist__header">Playlists</h1>
-      <a className="playlist__link--whole" href="#playlists">
+    <header className="playlist__section--header-container">
+      <h1 className="playlist__section--header">Playlists</h1>
+      <a className="playlist__section--all-playlist-link" href="#playlists">
         Show All
       </a>
     </header>
@@ -28,7 +28,7 @@ const PlaylistComponent = ({ playLists, isInPlaylist }) => {
         />
         <section className="playlist__information">
           <span className="playlist__header">{name}</span>
-          <span className="playlist__count">Count: {count}</span>
+          <span className="playlist__count">{`${count} items`}</span>
         </section>
       </a>
     </li>

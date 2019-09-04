@@ -245,7 +245,10 @@ body {
     align-items: flex-start;
     margin: 0 1rem; }
 
-  .playlist__header-container {
+  .playlist__section--header {
+    margin: 0 1rem; }
+
+  .playlist__section--header-container {
     height: 3rem;
     width: 100%;
     align-items: center;
@@ -253,7 +256,9 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid #E5E5E5; }
 
-  .playlist__header {
+  .playlist__section--all-playlist-link {
+    color: #464646;
+    text-decoration: none;
     margin: 0 1rem; }
 
   .playlist__legend--middle-section {
@@ -268,10 +273,48 @@ body {
     width: 90%;
     line-height: 1.5; }
 
-  .playlist__link--whole {
-    color: #464646;
+  .playlist__content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0; }
+
+  .playlist__list {
+    list-style: none;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; }
+
+  .playlist__link--single {
     text-decoration: none;
-    margin: 0 1rem; } }
+    color: #464646;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%; }
+
+  .playlist__image {
+    height: 4.5rem;
+    width: 7rem;
+    border-radius: 0.4rem; }
+
+  .playlist__information {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 100%; }
+
+  .playlist__information > * {
+    width: 100%;
+    text-align: start; }
+
+  .playlist__header {
+    font-weight: 700; } }
 @media Screen and (min-width: 1024px) {
   .show-modal {
     background-color: #213239;

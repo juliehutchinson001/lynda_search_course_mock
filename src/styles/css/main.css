@@ -38,6 +38,11 @@ body {
   background-color: #F2F5F8;
   border-radius: 0.2rem; }
 
+.courses__section--header {
+  margin: 0.8rem;
+  width: 100%;
+  text-align: left; }
+
 @media Screen and (min-width: 768px) {
   .courses {
     min-height: 30rem;
@@ -49,13 +54,12 @@ body {
     font-size: 30px; }
 
   .course {
-    border: 2px solid #E5E5E5;
+    border-top: 2px solid #E5E5E5;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 6px;
-    max-width: 52rem;
-    box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.4); }
+    padding: 0.8rem;
+    width: 100%; }
 
   .course__credentials {
     width: 90%;
@@ -63,9 +67,9 @@ body {
     margin: 1rem 0 1rem 1rem; }
 
   .course__playlist--activate-modal {
-    height: 90%;
-    width: 4%;
-    margin: 1rem 0 1rem 1rem; }
+    border: 1px solid transparent;
+    height: 8rem;
+    background-color: #F2F5F8; }
 
   .course__image {
     /* Dimensions 250 x 140 */
@@ -87,12 +91,6 @@ body {
     margin: 0.5rem 0 1rem 0;
     padding: 0;
     font-size: 1rem; } }
-/* -------Delete------- */
-.course > * {
-  /* border: 1px solid orangered; */
-  margin: 3px; }
-
-/* -------Delete------- */
 .footer {
   color: #464646;
   height: 2rem;

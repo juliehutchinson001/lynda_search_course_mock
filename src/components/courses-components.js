@@ -55,7 +55,10 @@ class CourseContainer extends Component {
     const errorMsg = <p className="courses_error">Enter a valid search term</p>;
 
     return (
-      <main className="courses">{validAnswer ? coursesArr : errorMsg}</main>
+      <main className="courses">
+        <h1 className="courses__section--header">Courses</h1>
+        {validAnswer ? coursesArr : errorMsg}
+      </main>
     );
   }
 }

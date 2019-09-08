@@ -313,6 +313,12 @@ body {
 
   .playlist__header {
     font-weight: 700; } }
+.modal {
+  position: absolute; }
+
+.playlist-modal {
+  position: absolute; }
+
 @media Screen and (min-width: 1024px) {
   .show-modal {
     background-color: #213239;
@@ -321,7 +327,6 @@ body {
     border-radius: 5px;
     left: 20px;
     padding: 10px;
-    position: relative;
     top: -20px;
     font-size: 15px; }
 
@@ -330,8 +335,7 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    position: relative; }
+    justify-content: center; }
 
   .show-new-playlist-modal {
     background-color: #213239;

@@ -115,7 +115,9 @@ const NewPlaylist = props => {
   return (
     <div
       className={
-        showNewModal ? "show-new-playlist-modal" : "hide-new-playlist-modal"
+        showNewModal
+          ? "playlist-modal show-new-playlist-modal"
+          : "playlist-modal hide-new-playlist-modal"
       }
     >
       <header className="newPlaylist__header">

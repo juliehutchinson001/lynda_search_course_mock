@@ -34,6 +34,9 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; } }
+.course {
+  position: relative; }
+
 .courses {
   background-color: #F2F5F8;
   border-radius: 0.2rem; }
@@ -314,20 +317,24 @@ body {
   .playlist__header {
     font-weight: 700; } }
 .modal {
-  position: absolute; }
+  position: absolute;
+  right: 12%;
+  bottom: 13%;
+  width: 200px;
+  height: 200px; }
 
 .playlist-modal {
   position: absolute; }
+
+.new-playlist__title {
+  font-size: 1rem; }
 
 @media Screen and (min-width: 1024px) {
   .show-modal {
     background-color: #213239;
     color: #F2F5F8;
-    width: 30vw;
     border-radius: 5px;
-    left: 20px;
     padding: 10px;
-    top: -20px;
     font-size: 15px; }
 
   .hide-modal {
@@ -342,14 +349,10 @@ body {
     color: #F2F5F8;
     width: 30vw;
     border-radius: 5px;
-    left: 20px;
     padding: 10px;
-    position: relative;
-    top: -20px;
     font-size: 15px; }
 
   .hide-new-playlist-modal {
-    position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid brown; }

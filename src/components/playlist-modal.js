@@ -120,10 +120,10 @@ const NewPlaylist = props => {
           : "playlist-modal hide-new-playlist-modal"
       }
     >
-      <header className="newPlaylist__header">
-        <h1 className="newPlaylist__title">Create Playlist</h1>
+      <header className="new-playlist__header">
+        <h1 className="new-playlist__title">Create Playlist</h1>
         <button
-          className="newPlaylist__button--return"
+          className="new-playlist__button--return"
           type="button"
           onClick={hideNewPlaylistModal}
         >
